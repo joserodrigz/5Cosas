@@ -1,1037 +1,1061 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Las 5 Cosas Buenas del Día de Hoy</title>
-
-```
-<!-- PWA Meta Tags -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="5 Cosas Buenas">
-<meta name="theme-color" content="#1565c0">
-
-<!-- Manifest embebido -->
-<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkxhcyA1IENvc2FzIEJ1ZW5hcyBkZWwgRMOtYSIsCiAgInNob3J0X25hbWUiOiAiNSBDb3NhcyIsCiAgImRlc2NyaXB0aW9uIjogIlVuIGVqZXJjaWNpbyBkaWFyaW8gZGUgZ3JhdGl0dWQgeSBhdGVuY2nDs24gYWwgZGV0YWxsZSIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjVmNWY1IiwKICAidGhlbWVfY29sb3IiOiAiIzE1NjVjMCIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbCw8c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDEwMCAxMDAnPjxyZWN0IGZpbGw9JyUyMzE1NjVjMCcgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnIHJ4PScyMCcvPjx0ZXh0IHg9JzUwJyB5PSc2NScgZm9udC1zaXplPSc1MCcgdGV4dC1hbmNob3I9J21pZGRsZScgZmlsbD0nd2hpdGUnIGZvbnQtZmFtaWx5PSdzYW5zLXNlcmlmJyBmb250LXdlaWdodD0nYm9sZCc+NTwvdGV4dD48L3N2Zz4iLAogICAgICAic2l6ZXMiOiAiYW55IiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0KICBdCn0=">
-
-<!-- Icono para iOS -->
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231565c0' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>5</text></svg>">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    :root {
-        --bg: #f5f5f5;
-        --card-bg: #ffffff;
-        --border: #e0e0e0;
-        --text: #1a1a2e;
-        --muted: #666666;
-        --blue: #1565c0;
-        --blue-light: #e3f2fd;
-        --red: #c62828;
-        --red-light: #ffebee;
-        --green: #1565c0;
-        --green-light: #e3f2fd;
-    }
-    
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        min-height: 100vh;
-        line-height: 1.6;
-    }
-    
-    .container {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 30px 20px;
-        padding-top: env(safe-area-inset-top, 30px);
-        padding-bottom: env(safe-area-inset-bottom, 20px);
-    }
-    
-    /* HEADER */
-    .header {
-        text-align: center;
-        padding: 40px 20px 30px;
-        margin-bottom: 10px;
-    }
-    
-    .header h1 {
-        font-size: 2rem;
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        margin-bottom: 8px;
-        color: var(--text);
-    }
-    
-    .header h1 .accent { 
-        color: var(--green);
-        font-weight: 600;
-    }
-    
-    .header-subtitle {
-        font-size: 0.95rem;
-        font-weight: 400;
-        color: var(--muted);
-        margin-bottom: 8px;
-    }
-    
-    .header-rules {
-        font-size: 0.8rem;
-        color: var(--muted);
-        font-style: italic;
-    }
-    
-    /* STATS BAR */
-    .stats-bar {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        padding: 15px 20px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
-    
-    .stat-item {
-        text-align: center;
-    }
-    
-    .stat-value {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: var(--green);
-    }
-    
-    .stat-label {
-        font-size: 0.65rem;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-    
-    /* NAVIGATION */
-    .nav-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 12px 15px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
-    
-    .nav-arrows {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .nav-btn {
-        padding: 8px 16px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        background: var(--card-bg);
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.75rem;
-        font-weight: 500;
-        color: var(--text);
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    
-    .nav-btn:hover:not(:disabled) {
-        border-color: var(--blue);
-        color: var(--blue);
-    }
-    
-    .nav-btn:disabled {
-        opacity: 0.4;
-        cursor: not-allowed;
-    }
-    
-    .nav-btn.primary {
-        background: var(--green);
-        border-color: var(--green);
-        color: white;
-    }
-    
-    .nav-btn.primary:hover {
-        background: #0d47a1;
-    }
-    
-    .nav-info {
-        font-size: 0.8rem;
-        color: var(--muted);
-    }
-    
-    .nav-info strong {
-        color: var(--text);
-    }
-    
-    .nav-actions {
-        display: flex;
-        gap: 8px;
-    }
-    
-    /* PAGE CARD */
-    .page-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-    
-    .page-header {
-        padding: 20px 25px;
-        border-bottom: 1px solid var(--border);
-        background: linear-gradient(135deg, rgba(46,125,50,0.08), rgba(46,125,50,0.02));
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .page-date-group {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-    
-    .page-date-label {
-        font-size: 0.65rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--muted);
-    }
-    
-    .page-date-input {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--green);
-        border: none;
-        border-bottom: 2px dashed var(--border);
-        background: transparent;
-        padding: 4px 0;
-        width: 140px;
-        transition: all 0.2s;
-    }
-    
-    .page-date-input:focus {
-        outline: none;
-        border-bottom-color: var(--green);
-    }
-    
-    .page-date-input::placeholder {
-        color: var(--muted);
-        opacity: 0.5;
-    }
-    
-    .page-counter {
-        text-align: right;
-    }
-    
-    .page-counter-value {
-        font-size: 1.8rem;
-        font-weight: 300;
-        color: var(--green);
-        line-height: 1;
-    }
-    
-    .page-counter-label {
-        font-size: 0.7rem;
-        color: var(--muted);
-    }
-    
-    .page-body {
-        padding: 25px;
-    }
-    
-    /* ITEMS */
-    .items-list {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .item-number {
-        flex-shrink: 0;
-        width: 28px;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--green);
-        color: white;
-        font-size: 0.75rem;
-        font-weight: 700;
-        border-radius: 50%;
-        margin-top: 10px;
-    }
-    
-    .item-input {
-        flex: 1;
-        padding: 12px 15px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.9rem;
-        line-height: 1.6;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        background: #fafafa;
-        color: var(--text);
-        resize: none;
-        min-height: 48px;
-        transition: all 0.2s;
-    }
-    
-    .item-input:focus {
-        outline: none;
-        border-color: var(--green);
-        background: white;
-    }
-    
-    .item-input::placeholder {
-        color: var(--muted);
-        opacity: 0.5;
-        font-style: italic;
-    }
-    
-    /* ACTIONS */
-    .actions-bar {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 15px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
-    
-    .action-btn {
-        padding: 10px 18px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        background: var(--card-bg);
-        color: var(--text);
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    
-    .action-btn:hover {
-        border-color: var(--blue);
-        color: var(--blue);
-    }
-    
-    .action-btn.blue {
-        background: var(--blue);
-        border-color: var(--blue);
-        color: white;
-    }
-    
-    .action-btn.blue:hover {
-        background: #0d47a1;
-    }
-    
-    .action-btn.red {
-        color: var(--red);
-        border-color: var(--red);
-    }
-    
-    .action-btn.red:hover {
-        background: var(--red-light);
-    }
-    
-    /* INDEX PANEL */
-    .index-panel {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 320px;
-        height: 100vh;
-        background: var(--card-bg);
-        border-left: 1px solid var(--border);
-        box-shadow: -4px 0 20px rgba(0,0,0,0.1);
-        z-index: 1000;
-        overflow-y: auto;
-    }
-    
-    .index-panel.open {
-        display: block;
-    }
-    
-    .index-header {
-        padding: 20px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        background: var(--card-bg);
-    }
-    
-    .index-title {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text);
-    }
-    
-    .index-close {
-        padding: 6px 12px;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        background: transparent;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.7rem;
-        cursor: pointer;
-    }
-    
-    .index-close:hover {
-        background: var(--bg);
-    }
-    
-    .index-list {
-        padding: 15px;
-    }
-    
-    .index-item {
-        padding: 12px 15px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        margin-bottom: 8px;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    
-    .index-item:hover {
-        border-color: var(--green);
-        background: var(--green-light);
-    }
-    
-    .index-item.active {
-        border-color: var(--green);
-        background: var(--green-light);
-    }
-    
-    .index-item-date {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 4px;
-    }
-    
-    .index-item-preview {
-        font-size: 0.75rem;
-        color: var(--muted);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .index-item-count {
-        display: inline-block;
-        padding: 2px 8px;
-        background: var(--green);
-        color: white;
-        font-size: 0.65rem;
-        font-weight: 600;
-        border-radius: 10px;
-        margin-left: 8px;
-    }
-    
-    .index-empty {
-        text-align: center;
-        padding: 40px 20px;
-        color: var(--muted);
-        font-size: 0.85rem;
-    }
-    
-    /* OVERLAY */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.3);
-        z-index: 999;
-    }
-    
-    .overlay.open {
-        display: block;
-    }
-    
-    /* FOOTER */
-    .footer {
-        text-align: center;
-        padding: 25px 20px;
-        margin-top: 10px;
-    }
-    
-    .footer-text {
-        font-size: 0.7rem;
-        color: var(--muted);
-    }
-    
-    /* PRINT */
-    @media print {
-        body { background: white; }
-        .nav-bar, .actions-bar, .stats-bar, .footer { display: none; }
-        .page-card { box-shadow: none; border: 1px solid #ddd; }
-        .container { max-width: 100%; padding: 20px; }
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-        .nav-bar {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .nav-arrows {
-            order: 1;
-            width: 100%;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-        
-        .nav-info {
-            order: 2;
-        }
-        
-        .nav-actions {
-            order: 3;
-        }
-        
-        .page-header {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-        }
-        
-        .page-date-input {
-            text-align: center;
-            width: 100%;
-        }
-        
-        .page-counter {
-            text-align: center;
-        }
-        
-        .stats-bar {
-            gap: 15px;
-        }
-        
-        .index-panel {
-            width: 100%;
-        }
-    }
-</style>
-```
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="5 Cosas">
+    <title>Las 5 Cosas Buenas del Día de Hoy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --border: #e0e0e0;
+            --text: #1a1a2e;
+            --muted: #666666;
+            --blue: #1565c0;
+            --blue-light: #e3f2fd;
+            --red: #c62828;
+            --red-light: #ffebee;
+            --green: #1565c0;
+            --green-light: #e3f2fd;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            padding-top: env(safe-area-inset-top, 30px);
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            margin-bottom: 10px;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .header h1 .accent { 
+            color: var(--blue);
+            font-weight: 600;
+        }
+        
+        .header-subtitle {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        
+        .header-rules {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+        
+        /* STATS BAR */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* NAVIGATION */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-arrows {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card-bg);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover:not(:disabled) {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .nav-btn.primary {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white;
+        }
+        
+        .nav-btn.primary:hover {
+            background: #0d47a1;
+        }
+        
+        .nav-info {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        
+        .nav-info strong {
+            color: var(--text);
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        /* PAGE CARD */
+        .page-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .page-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(21,101,192,0.08), rgba(21,101,192,0.02));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .page-date-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .page-date-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+        }
+        
+        .page-date-input {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--blue);
+            border: none;
+            border-bottom: 2px dashed var(--border);
+            background: transparent;
+            padding: 4px 0;
+            width: 140px;
+            transition: all 0.2s;
+        }
+        
+        .page-date-input:focus {
+            outline: none;
+            border-bottom-color: var(--blue);
+        }
+        
+        .page-date-input::placeholder {
+            color: var(--muted);
+            opacity: 0.5;
+        }
+        
+        .page-counter {
+            text-align: right;
+        }
+        
+        .page-counter-value {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--blue);
+            line-height: 1;
+        }
+        
+        .page-counter-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+        
+        .page-body {
+            padding: 25px;
+        }
+        
+        /* ITEMS */
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .item-tick {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue);
+            color: white;
+            font-size: 1rem;
+            font-weight: 400;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        
+        .item-input {
+            flex: 1;
+            padding: 12px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: #fafafa;
+            color: var(--text);
+            resize: none;
+            min-height: 48px;
+            transition: all 0.2s;
+        }
+        
+        .item-input:focus {
+            outline: none;
+            border-color: var(--blue);
+            background: white;
+        }
+        
+        .item-input::placeholder {
+            color: var(--muted);
+            opacity: 0.5;
+            font-style: italic;
+        }
+        
+        /* ACTIONS */
+        .actions-bar {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .action-btn {
+            padding: 10px 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card-bg);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+        
+        .action-btn.blue {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white;
+        }
+        
+        .action-btn.blue:hover {
+            background: #0d47a1;
+        }
+        
+        .action-btn.red {
+            color: var(--red);
+            border-color: var(--red);
+        }
+        
+        .action-btn.red:hover {
+            background: var(--red-light);
+        }
+        
+        /* INDEX PANEL */
+        .index-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100vh;
+            background: var(--card-bg);
+            border-left: 1px solid var(--border);
+            box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .index-panel.open {
+            display: block;
+        }
+        
+        .index-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+        }
+        
+        .index-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .index-close {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+        
+        .index-close:hover {
+            background: var(--bg);
+        }
+        
+        .index-list {
+            padding: 15px;
+        }
+        
+        .index-item {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .index-item:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+        
+        .index-item.active {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+        
+        .index-item-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        
+        .index-item-preview {
+            font-size: 0.75rem;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .index-item-count {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--blue);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+        
+        .index-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        
+        /* OVERLAY */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        
+        .overlay.open {
+            display: block;
+        }
+        
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 10px;
+        }
+        
+        .footer-text {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+        
+        /* PRINT */
+        @media print {
+            body { background: white; }
+            .nav-bar, .actions-bar, .stats-bar, .footer { display: none; }
+            .page-card { box-shadow: none; border: 1px solid #ddd; }
+            .container { max-width: 100%; padding: 20px; }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .nav-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-arrows {
+                order: 1;
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            .nav-info {
+                order: 2;
+            }
+            
+            .nav-actions {
+                order: 3;
+            }
+            
+            .page-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .page-date-input {
+                text-align: center;
+                width: 100%;
+            }
+            
+            .page-counter {
+                text-align: center;
+            }
+            
+            .stats-bar {
+                gap: 15px;
+            }
+            
+            .index-panel {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-
-```
-    <!-- HEADER -->
-    <header class="header">
-        <h1>Las <span class="accent">5</span> Cosas Buenas del Día de Hoy</h1>
-        <p class="header-subtitle">Un ejercicio diario de gratitud y atención al detalle</p>
-        <p class="header-rules">No se pueden repetir · Sin orden de prioridad</p>
-    </header>
-    
-    <!-- STATS -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-value" id="statDias">0</div>
-            <div class="stat-label">Días</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value" id="statCosas">0</div>
-            <div class="stat-label">Cosas buenas</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value" id="statRacha">0</div>
-            <div class="stat-label">Racha</div>
-        </div>
-    </div>
-    
-    <!-- NAVIGATION -->
-    <div class="nav-bar">
-        <div class="nav-arrows">
-            <button class="nav-btn" id="btnPrev" onclick="navegar(-1)">← Anterior</button>
-            <span class="nav-info">Día <strong id="navActual">1</strong> de <strong id="navTotal">1</strong></span>
-            <button class="nav-btn" id="btnNext" onclick="navegar(1)">Siguiente →</button>
-        </div>
-        <div class="nav-actions">
-            <button class="nav-btn" onclick="abrirIndice()">Índice</button>
-            <button class="nav-btn primary" onclick="nuevoDia()">+ Nuevo</button>
-        </div>
-    </div>
-    
-    <!-- PAGE -->
-    <div class="page-card">
-        <div class="page-header">
-            <div class="page-date-group">
-                <span class="page-date-label">Fecha</span>
-                <input type="text" class="page-date-input" id="inputFecha" placeholder="DDMMAA" oninput="autoGuardar()">
-            </div>
-            <div class="page-counter">
-                <div class="page-counter-value" id="contadorItems">0</div>
-                <div class="page-counter-label">de 5</div>
-            </div>
-        </div>
-        <div class="page-body">
-            <div class="items-list" id="itemsList">
-                <!-- Items generados por JS -->
-            </div>
-        </div>
-    </div>
-    
-    <!-- ACTIONS -->
-    <div class="actions-bar">
-        <button class="action-btn" onclick="compartir()">Compartir</button>
-        <button class="action-btn" onclick="exportarJSON()">Exportar</button>
-        <button class="action-btn" onclick="importarJSON()">Importar</button>
-        <button class="action-btn" onclick="pegarJSON()">Pegar JSON</button>
-        <button class="action-btn" onclick="window.print()">Imprimir</button>
-        <button class="action-btn" onclick="limpiarPagina()">Limpiar página</button>
-        <button class="action-btn red" onclick="eliminarDia()">Eliminar día</button>
-    </div>
-    
-    <input type="file" id="inputImport" accept=".json,application/json" style="display:none" onchange="procesarImport(event)">
-    
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p class="footer-text">Copyright © Jose Rodriguez. Todos los Derechos Reservados.<br>Creación de propiedad intelectual protegida. Queda prohibida su reproducción, distribución o uso comercial sin autorización expresa.</p>
-    </footer>
-    
-</div>
-
-<!-- INDEX PANEL -->
-<div class="overlay" id="overlay" onclick="cerrarIndice()"></div>
-<div class="index-panel" id="indexPanel">
-    <div class="index-header">
-        <span class="index-title">Índice de días</span>
-        <button class="index-close" onclick="cerrarIndice()">Cerrar</button>
-    </div>
-    <div class="index-list" id="indexList">
-        <!-- Lista generada por JS -->
-    </div>
-</div>
-
-<script>
-    // Estado
-    let paginas = [];
-    let indiceActual = 0;
-    
-    // Inicializar
-    document.addEventListener('DOMContentLoaded', function() {
-        cargarDatos();
-        if (paginas.length === 0) {
-            nuevoDia();
-        } else {
-            indiceActual = paginas.length - 1;
-            renderizar();
-        }
-    });
-    
-    function generarItems() {
-        const container = document.getElementById('itemsList');
-        container.innerHTML = '';
-        
-        for (let i = 1; i <= 5; i++) {
-            const item = document.createElement('div');
-            item.className = 'item';
-            item.innerHTML = `
-                <div class="item-number">${i}</div>
-                <textarea 
-                    class="item-input" 
-                    id="item${i}" 
-                    placeholder="Cosa buena #${i}..."
-                    oninput="autoGuardar(); actualizarContador();"
-                    rows="1"
-                ></textarea>
-            `;
-            container.appendChild(item);
-        }
-        
-        // Auto-resize
-        document.querySelectorAll('.item-input').forEach(ta => {
-            ta.addEventListener('input', function() {
-                this.style.height = 'auto';
-                this.style.height = Math.max(48, this.scrollHeight) + 'px';
-            });
-        });
-    }
-    
-    function nuevoDia() {
-        guardarPaginaActual();
-        
-        const hoy = new Date();
-        const fecha = String(hoy.getDate()).padStart(2, '0') + 
-                     String(hoy.getMonth() + 1).padStart(2, '0') + 
-                     String(hoy.getFullYear()).slice(-2);
-        
-        const nuevaPagina = {
-            id: Date.now(),
-            fecha: fecha,
-            items: ['', '', '', '', ''],
-            creado: new Date().toISOString()
-        };
-        
-        paginas.push(nuevaPagina);
-        indiceActual = paginas.length - 1;
-        
-        // Primero renderizar para que el DOM tenga los valores correctos
-        renderizar();
-        
-        // Luego guardar (ahora guardarPaginaActual leerá la fecha correcta del DOM)
-        localStorage.setItem('5cosas_data', JSON.stringify({
-            version: 1,
-            paginas: paginas,
-            modificado: new Date().toISOString()
-        }));
-        
-        actualizarStats();
-        
-        // Scroll arriba
-        window.scrollTo(0, 0);
-    }
-    
-    function renderizar() {
-        generarItems();
-        
-        const pagina = paginas[indiceActual];
-        if (!pagina) return;
-        
-        document.getElementById('inputFecha').value = pagina.fecha || '';
-        
-        pagina.items.forEach((contenido, i) => {
-            const input = document.getElementById(`item${i + 1}`);
-            if (input) {
-                input.value = contenido;
-                input.style.height = 'auto';
-                input.style.height = Math.max(48, input.scrollHeight) + 'px';
-            }
-        });
-        
-        actualizarContador();
-        actualizarNav();
-        actualizarStats();
-    }
-    
-    function actualizarContador() {
-        let count = 0;
-        for (let i = 1; i <= 5; i++) {
-            const input = document.getElementById(`item${i}`);
-            if (input && input.value.trim()) count++;
-        }
-        document.getElementById('contadorItems').textContent = count;
-    }
-    
-    function actualizarNav() {
-        document.getElementById('navActual').textContent = indiceActual + 1;
-        document.getElementById('navTotal').textContent = paginas.length;
-        document.getElementById('btnPrev').disabled = indiceActual === 0;
-        document.getElementById('btnNext').disabled = indiceActual === paginas.length - 1;
-    }
-    
-    function actualizarStats() {
-        document.getElementById('statDias').textContent = paginas.length;
-        
-        let totalCosas = 0;
-        paginas.forEach(p => {
-            p.items.forEach(item => {
-                if (item && item.trim()) totalCosas++;
-            });
-        });
-        document.getElementById('statCosas').textContent = totalCosas;
-        
-        // Racha
-        let racha = 0;
-        for (let i = paginas.length - 1; i >= 0; i--) {
-            if (paginas[i].items.some(item => item && item.trim())) {
-                racha++;
-            } else {
-                break;
-            }
-        }
-        document.getElementById('statRacha').textContent = racha;
-    }
-    
-    function navegar(dir) {
-        const nuevo = indiceActual + dir;
-        if (nuevo >= 0 && nuevo < paginas.length) {
-            guardarPaginaActual();
-            indiceActual = nuevo;
-            renderizar();
-        }
-    }
-    
-    function irAPagina(idx) {
-        guardarPaginaActual();
-        indiceActual = idx;
-        renderizar();
-        cerrarIndice();
-    }
-    
-    function guardarPaginaActual() {
-        if (!paginas[indiceActual]) return;
-        
-        paginas[indiceActual].fecha = document.getElementById('inputFecha').value;
-        paginas[indiceActual].items = [];
-        
-        for (let i = 1; i <= 5; i++) {
-            const input = document.getElementById(`item${i}`);
-            paginas[indiceActual].items.push(input ? input.value : '');
-        }
-    }
-    
-    let timeoutGuardar;
-    function autoGuardar() {
-        clearTimeout(timeoutGuardar);
-        timeoutGuardar = setTimeout(() => {
-            guardarPaginaActual();
-            guardar();
-        }, 800);
-    }
-    
-    function guardar() {
-        guardarPaginaActual();
-        localStorage.setItem('5cosas_data', JSON.stringify({
-            version: 1,
-            paginas: paginas,
-            modificado: new Date().toISOString()
-        }));
-        actualizarStats();
-    }
-    
-    function cargarDatos() {
-        const data = localStorage.getItem('5cosas_data');
-        if (data) {
-            try {
-                const parsed = JSON.parse(data);
-                paginas = parsed.paginas || [];
-            } catch (e) {
-                paginas = [];
-            }
-        }
-    }
-    
-    function compartir() {
-        guardarPaginaActual();
-        const pagina = paginas[indiceActual];
-        if (!pagina) return;
-        
-        const itemsTexto = pagina.items
-            .filter(item => item && item.trim())
-            .map((item, i) => `${i + 1}. ${item}`)
-            .join('\n');
-        
-        if (!itemsTexto) {
-            alert('No hay cosas buenas para compartir en esta página.');
-            return;
-        }
-        
-        const texto = `🌟 Las 5 Cosas Buenas del Día (${pagina.fecha || 'Sin fecha'})\n\n${itemsTexto}`;
-        
-        // Intentar Web Share API primero (funciona en HTTPS válido)
-        if (navigator.share) {
-            navigator.share({
-                title: 'Las 5 Cosas Buenas del Día',
-                text: texto
-            }).then(() => {
-                // Compartido OK
-            }).catch(() => {
-                abrirWhatsApp(texto);
-            });
-        } else {
-            abrirWhatsApp(texto);
-        }
-    }
-    
-    function abrirWhatsApp(texto) {
-        const textoEncoded = encodeURIComponent(texto);
-        // Usar esquema whatsapp:// que funciona mejor en iOS
-        window.location.href = `whatsapp://send?text=${textoEncoded}`;
-    }
-    
-    function limpiarPagina() {
-        if (confirm('¿Limpiar todos los campos de esta página?')) {
-            document.getElementById('inputFecha').value = '';
-            for (let i = 1; i <= 5; i++) {
-                const input = document.getElementById(`item${i}`);
-                if (input) {
-                    input.value = '';
-                    input.style.height = '48px';
-                }
-            }
-            paginas[indiceActual].fecha = '';
-            paginas[indiceActual].items = ['', '', '', '', ''];
-            guardar();
-            actualizarContador();
-            actualizarStats();
-        }
-    }
-    
-    function eliminarDia() {
-        if (paginas.length <= 1) {
-            alert('No puedes eliminar el único día.');
-            return;
-        }
-        if (confirm('¿Eliminar este día?')) {
-            paginas.splice(indiceActual, 1);
-            if (indiceActual >= paginas.length) {
-                indiceActual = paginas.length - 1;
-            }
-            guardar();
-            renderizar();
-        }
-    }
-    
-    function exportarJSON() {
-        guardarPaginaActual();
-        const data = {
-            titulo: 'Las 5 Cosas Buenas del Día de Hoy',
-            version: 1,
-            exportado: new Date().toISOString(),
-            paginas: paginas
-        };
-        
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `5_cosas_buenas_${new Date().toISOString().split('T')[0]}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-    }
-    
-    function importarJSON() {
-        document.getElementById('inputImport').click();
-    }
-    
-    function procesarImport(e) {
-        const file = e.target.files[0];
-        if (!file) return;
-        
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-            try {
-                const data = JSON.parse(ev.target.result);
-                cargarDatosJSON(data);
-            } catch (err) {
-                alert('Error: ' + err.message);
-            }
-        };
-        reader.readAsText(file);
-        e.target.value = '';
-    }
-    
-    function pegarJSON() {
-        const texto = prompt('Pega aquí el contenido del JSON:');
-        if (!texto) return;
-        
-        try {
-            const data = JSON.parse(texto);
-            cargarDatosJSON(data);
-        } catch (err) {
-            alert('Error al procesar JSON: ' + err.message);
-        }
-    }
-    
-    function cargarDatosJSON(data) {
-        if (data.paginas && Array.isArray(data.paginas)) {
-            if (confirm(`Importar ${data.paginas.length} días. ¿Reemplazar todo (OK) o añadir (Cancelar)?`)) {
-                paginas = data.paginas;
-            } else {
-                paginas = paginas.concat(data.paginas);
-            }
-            indiceActual = paginas.length - 1;
-            
-            localStorage.setItem('5cosas_data', JSON.stringify({
-                version: 1,
-                paginas: paginas,
-                modificado: new Date().toISOString()
-            }));
-            
-            renderizar();
-            actualizarStats();
-            alert('Importación completada: ' + paginas.length + ' días.');
-        } else {
-            alert('Formato de JSON no válido.');
-        }
-    }
-    
-    // Índice
-    function abrirIndice() {
-        renderizarIndice();
-        document.getElementById('indexPanel').classList.add('open');
-        document.getElementById('overlay').classList.add('open');
-    }
-    
-    function cerrarIndice() {
-        document.getElementById('indexPanel').classList.remove('open');
-        document.getElementById('overlay').classList.remove('open');
-    }
-    
-    function renderizarIndice() {
-        const container = document.getElementById('indexList');
-        
-        if (paginas.length === 0) {
-            container.innerHTML = '<div class="index-empty">No hay días registrados</div>';
-            return;
-        }
-        
-        container.innerHTML = '';
-        
-        // Mostrar de más reciente a más antiguo
-        for (let i = paginas.length - 1; i >= 0; i--) {
-            const p = paginas[i];
-            const count = p.items.filter(item => item && item.trim()).length;
-            const preview = p.items.find(item => item && item.trim()) || 'Sin contenido';
-            
-            const item = document.createElement('div');
-            item.className = 'index-item' + (i === indiceActual ? ' active' : '');
-            item.onclick = () => irAPagina(i);
-            item.innerHTML = `
-                <div class="index-item-date">
-                    ${p.fecha || 'Sin fecha'}
-                    <span class="index-item-count">${count}/5</span>
-                </div>
-                <div class="index-item-preview">${preview.substring(0, 50)}${preview.length > 50 ? '...' : ''}</div>
-            `;
-            container.appendChild(item);
-        }
-    }
-</script>
-```
-
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header class="header">
+            <h1>Las <span class="accent">5</span> Cosas Buenas del Día de Hoy</h1>
+            <p class="header-subtitle">Un ejercicio diario de gratitud y atención al detalle</p>
+            <p class="header-rules">No se pueden repetir · Sin orden de prioridad</p>
+        </header>
+        
+        <!-- STATS -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="statDias">0</div>
+                <div class="stat-label">Días</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="statCosas">0</div>
+                <div class="stat-label">Cosas buenas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="statRacha">0</div>
+                <div class="stat-label">Racha</div>
+            </div>
+        </div>
+        
+        <!-- NAVIGATION -->
+        <div class="nav-bar">
+            <div class="nav-arrows">
+                <button class="nav-btn" id="btnPrev" onclick="navegar(-1)">← Anterior</button>
+                <span class="nav-info">Día <strong id="navActual">1</strong> de <strong id="navTotal">1</strong></span>
+                <button class="nav-btn" id="btnNext" onclick="navegar(1)">Siguiente →</button>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn" onclick="abrirIndice()">Índice</button>
+                <button class="nav-btn primary" onclick="nuevoDia()">+ Nuevo</button>
+            </div>
+        </div>
+        
+        <!-- PAGE -->
+        <div class="page-card">
+            <div class="page-header">
+                <div class="page-date-group">
+                    <span class="page-date-label">Fecha</span>
+                    <input type="text" class="page-date-input" id="inputFecha" placeholder="DDMMAA" maxlength="6" oninput="autoGuardar()">
+                </div>
+                <div class="page-counter">
+                    <div class="page-counter-value" id="contadorItems">0</div>
+                    <div class="page-counter-label">de 5</div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="items-list" id="itemsList">
+                    <!-- Items generados por JS -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- ACTIONS -->
+        <div class="actions-bar">
+            <button class="action-btn" onclick="compartir()">Compartir</button>
+            <button class="action-btn blue" onclick="exportarJSON()">Guardar copia</button>
+            <button class="action-btn" onclick="importarJSON()">Cargar copia</button>
+            <button class="action-btn" onclick="window.print()">Imprimir</button>
+            <button class="action-btn" onclick="limpiarPagina()">Limpiar página</button>
+            <button class="action-btn red" onclick="eliminarDia()">Eliminar día</button>
+        </div>
+        
+        <input type="file" id="inputImport" accept=".json" style="display:none" onchange="procesarImport(event)">
+        
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p class="footer-text">Copyright © Jose Rodriguez. Todos los Derechos Reservados.</p>
+        </footer>
+        
+    </div>
+    
+    <!-- INDEX PANEL -->
+    <div class="overlay" id="overlay" onclick="cerrarIndice()"></div>
+    <div class="index-panel" id="indexPanel">
+        <div class="index-header">
+            <span class="index-title">Índice de días</span>
+            <button class="index-close" onclick="cerrarIndice()">Cerrar</button>
+        </div>
+        <div class="index-list" id="indexList">
+            <!-- Lista generada por JS -->
+        </div>
+    </div>
+    
+    <script>
+        // Estado
+        let paginas = [];
+        let indiceActual = 0;
+        
+        // =====================================================
+        // FUNCIÓN CLAVE: Convertir fecha DDMMAA a valor comparable
+        // =====================================================
+        function fechaAValor(fechaStr) {
+            // Formato esperado: DDMMAA (ej: 140126 = 14 enero 2026)
+            if (!fechaStr || fechaStr.length !== 6) return 0;
+            
+            const dd = fechaStr.substring(0, 2);
+            const mm = fechaStr.substring(2, 4);
+            const aa = fechaStr.substring(4, 6);
+            
+            // Convertir a número comparable: AAMMDD
+            // Asumimos años 00-99 como 2000-2099
+            return parseInt(aa + mm + dd, 10);
+        }
+        
+        // =====================================================
+        // FUNCIÓN CLAVE: Ordenar páginas por fecha cronológica
+        // =====================================================
+        function ordenarPaginas() {
+            paginas.sort((a, b) => {
+                const valorA = fechaAValor(a.fecha);
+                const valorB = fechaAValor(b.fecha);
+                return valorA - valorB; // Orden ascendente (más antiguo primero)
+            });
+        }
+        
+        // =====================================================
+        // Encontrar índice de página por ID después de ordenar
+        // =====================================================
+        function encontrarIndicePorId(id) {
+            return paginas.findIndex(p => p.id === id);
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarDatos();
+            if (paginas.length === 0) {
+                nuevoDia();
+            } else {
+                ordenarPaginas();
+                indiceActual = paginas.length - 1; // Ir al más reciente
+                renderizar();
+            }
+        });
+        
+        function generarItems() {
+            const container = document.getElementById('itemsList');
+            container.innerHTML = '';
+            
+            for (let i = 1; i <= 5; i++) {
+                const item = document.createElement('div');
+                item.className = 'item';
+                item.innerHTML = `
+                    <div class="item-tick">✓</div>
+                    <textarea 
+                        class="item-input" 
+                        id="item${i}" 
+                        placeholder="Algo bueno de hoy..."
+                        oninput="autoGuardar(); actualizarContador();"
+                        rows="1"
+                    ></textarea>
+                `;
+                container.appendChild(item);
+            }
+            
+            // Auto-resize
+            document.querySelectorAll('.item-input').forEach(ta => {
+                ta.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = Math.max(48, this.scrollHeight) + 'px';
+                });
+            });
+        }
+        
+        function nuevoDia() {
+            guardarPaginaActual();
+            
+            const hoy = new Date();
+            const fecha = String(hoy.getDate()).padStart(2, '0') + 
+                         String(hoy.getMonth() + 1).padStart(2, '0') + 
+                         String(hoy.getFullYear()).slice(-2);
+            
+            const nuevaPagina = {
+                id: Date.now(),
+                fecha: fecha,
+                items: ['', '', '', '', ''],
+                creado: new Date().toISOString()
+            };
+            
+            paginas.push(nuevaPagina);
+            
+            // Ordenar después de añadir
+            ordenarPaginas();
+            
+            // Encontrar el índice de la nueva página después de ordenar
+            indiceActual = encontrarIndicePorId(nuevaPagina.id);
+            
+            renderizar();
+            guardar();
+            
+            window.scrollTo(0, 0);
+        }
+        
+        function renderizar() {
+            generarItems();
+            
+            const pagina = paginas[indiceActual];
+            if (!pagina) return;
+            
+            document.getElementById('inputFecha').value = pagina.fecha || '';
+            
+            pagina.items.forEach((contenido, i) => {
+                const input = document.getElementById(`item${i + 1}`);
+                if (input) {
+                    input.value = contenido;
+                    input.style.height = 'auto';
+                    input.style.height = Math.max(48, input.scrollHeight) + 'px';
+                }
+            });
+            
+            actualizarContador();
+            actualizarNav();
+            actualizarStats();
+        }
+        
+        function actualizarContador() {
+            let count = 0;
+            for (let i = 1; i <= 5; i++) {
+                const input = document.getElementById(`item${i}`);
+                if (input && input.value.trim()) count++;
+            }
+            document.getElementById('contadorItems').textContent = count;
+        }
+        
+        function actualizarNav() {
+            document.getElementById('navActual').textContent = indiceActual + 1;
+            document.getElementById('navTotal').textContent = paginas.length;
+            document.getElementById('btnPrev').disabled = indiceActual === 0;
+            document.getElementById('btnNext').disabled = indiceActual === paginas.length - 1;
+        }
+        
+        function actualizarStats() {
+            document.getElementById('statDias').textContent = paginas.length;
+            
+            let totalCosas = 0;
+            paginas.forEach(p => {
+                p.items.forEach(item => {
+                    if (item && item.trim()) totalCosas++;
+                });
+            });
+            document.getElementById('statCosas').textContent = totalCosas;
+            
+            // Racha (días consecutivos con al menos 1 cosa)
+            let racha = 0;
+            for (let i = paginas.length - 1; i >= 0; i--) {
+                if (paginas[i].items.some(item => item && item.trim())) {
+                    racha++;
+                } else {
+                    break;
+                }
+            }
+            document.getElementById('statRacha').textContent = racha;
+        }
+        
+        function navegar(dir) {
+            const nuevo = indiceActual + dir;
+            if (nuevo >= 0 && nuevo < paginas.length) {
+                guardarPaginaActual();
+                indiceActual = nuevo;
+                renderizar();
+            }
+        }
+        
+        function irAPagina(idx) {
+            guardarPaginaActual();
+            indiceActual = idx;
+            renderizar();
+            cerrarIndice();
+        }
+        
+        function guardarPaginaActual() {
+            if (!paginas[indiceActual]) return;
+            
+            const fechaAnterior = paginas[indiceActual].fecha;
+            const fechaNueva = document.getElementById('inputFecha').value;
+            
+            paginas[indiceActual].fecha = fechaNueva;
+            paginas[indiceActual].items = [];
+            
+            for (let i = 1; i <= 5; i++) {
+                const input = document.getElementById(`item${i}`);
+                paginas[indiceActual].items.push(input ? input.value : '');
+            }
+            
+            // Si la fecha cambió, reordenar
+            if (fechaAnterior !== fechaNueva) {
+                const idActual = paginas[indiceActual].id;
+                ordenarPaginas();
+                indiceActual = encontrarIndicePorId(idActual);
+            }
+        }
+        
+        let timeoutGuardar;
+        function autoGuardar() {
+            clearTimeout(timeoutGuardar);
+            timeoutGuardar = setTimeout(() => {
+                guardarPaginaActual();
+                guardar();
+                actualizarNav(); // Actualizar navegación por si cambió la posición
+            }, 800);
+        }
+        
+        function guardar() {
+            localStorage.setItem('5cosas_data', JSON.stringify({
+                version: 2,
+                paginas: paginas,
+                modificado: new Date().toISOString()
+            }));
+            actualizarStats();
+        }
+        
+        function cargarDatos() {
+            const data = localStorage.getItem('5cosas_data');
+            if (data) {
+                try {
+                    const parsed = JSON.parse(data);
+                    paginas = parsed.paginas || [];
+                    // Ordenar al cargar
+                    ordenarPaginas();
+                } catch (e) {
+                    paginas = [];
+                }
+            }
+        }
+        
+        function compartir() {
+            guardarPaginaActual();
+            const pagina = paginas[indiceActual];
+            if (!pagina) return;
+            
+            const itemsTexto = pagina.items
+                .filter(item => item && item.trim())
+                .map((item, i) => `${i + 1}. ${item}`)
+                .join('\n');
+            
+            if (!itemsTexto) {
+                alert('No hay cosas buenas para compartir en esta página.');
+                return;
+            }
+            
+            const texto = `Las 5 Cosas Buenas del Día (${pagina.fecha || 'Sin fecha'})\n\n${itemsTexto}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Las 5 Cosas Buenas del Día',
+                    text: texto
+                }).catch(() => {
+                    copiarTexto(texto);
+                });
+            } else {
+                copiarTexto(texto);
+            }
+        }
+        
+        function copiarTexto(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                alert('Texto copiado al portapapeles.');
+            }).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = texto;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                alert('Texto copiado al portapapeles.');
+            });
+        }
+        
+        function limpiarPagina() {
+            if (confirm('¿Limpiar todos los campos de esta página?')) {
+                document.getElementById('inputFecha').value = '';
+                for (let i = 1; i <= 5; i++) {
+                    const input = document.getElementById(`item${i}`);
+                    if (input) {
+                        input.value = '';
+                        input.style.height = '48px';
+                    }
+                }
+                paginas[indiceActual].fecha = '';
+                paginas[indiceActual].items = ['', '', '', '', ''];
+                guardar();
+                actualizarContador();
+                actualizarStats();
+            }
+        }
+        
+        function eliminarDia() {
+            if (paginas.length <= 1) {
+                alert('No puedes eliminar el único día.');
+                return;
+            }
+            if (confirm('¿Eliminar este día?')) {
+                paginas.splice(indiceActual, 1);
+                if (indiceActual >= paginas.length) {
+                    indiceActual = paginas.length - 1;
+                }
+                guardar();
+                renderizar();
+            }
+        }
+        
+        function exportarJSON() {
+            guardarPaginaActual();
+            const ahora = new Date();
+            const data = {
+                titulo: 'Las 5 Cosas Buenas del Día de Hoy',
+                version: 2,
+                exportado: ahora.toISOString(),
+                totalDias: paginas.length,
+                paginas: paginas
+            };
+            
+            // Formato: 5cosas_20260117_1030.json
+            const fecha = ahora.getFullYear().toString() +
+                         String(ahora.getMonth() + 1).padStart(2, '0') +
+                         String(ahora.getDate()).padStart(2, '0');
+            const hora = String(ahora.getHours()).padStart(2, '0') +
+                        String(ahora.getMinutes()).padStart(2, '0');
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `5cosas_${fecha}_${hora}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function importarJSON() {
+            document.getElementById('inputImport').click();
+        }
+        
+        function procesarImport(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                try {
+                    const data = JSON.parse(ev.target.result);
+                    if (data.paginas && Array.isArray(data.paginas)) {
+                        if (confirm(`Importar ${data.paginas.length} días. ¿Reemplazar todo (OK) o añadir (Cancelar)?`)) {
+                            paginas = data.paginas;
+                        } else {
+                            paginas = paginas.concat(data.paginas);
+                        }
+                        // Ordenar después de importar
+                        ordenarPaginas();
+                        indiceActual = paginas.length - 1;
+                        guardar();
+                        renderizar();
+                        alert('Importación completada. Días ordenados cronológicamente.');
+                    }
+                } catch (err) {
+                    alert('Error: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        }
+        
+        // Índice
+        function abrirIndice() {
+            renderizarIndice();
+            document.getElementById('indexPanel').classList.add('open');
+            document.getElementById('overlay').classList.add('open');
+        }
+        
+        function cerrarIndice() {
+            document.getElementById('indexPanel').classList.remove('open');
+            document.getElementById('overlay').classList.remove('open');
+        }
+        
+        function renderizarIndice() {
+            const container = document.getElementById('indexList');
+            
+            if (paginas.length === 0) {
+                container.innerHTML = '<div class="index-empty">No hay días registrados</div>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            // Mostrar de más reciente a más antiguo (orden inverso al array)
+            for (let i = paginas.length - 1; i >= 0; i--) {
+                const p = paginas[i];
+                const count = p.items.filter(item => item && item.trim()).length;
+                const preview = p.items.find(item => item && item.trim()) || 'Sin contenido';
+                
+                // Formatear fecha para mostrar
+                let fechaMostrar = p.fecha || 'Sin fecha';
+                if (p.fecha && p.fecha.length === 6) {
+                    const dd = p.fecha.substring(0, 2);
+                    const mm = p.fecha.substring(2, 4);
+                    const aa = p.fecha.substring(4, 6);
+                    fechaMostrar = `${dd}/${mm}/${aa}`;
+                }
+                
+                const item = document.createElement('div');
+                item.className = 'index-item' + (i === indiceActual ? ' active' : '');
+                item.onclick = () => irAPagina(i);
+                item.innerHTML = `
+                    <div class="index-item-date">
+                        ${fechaMostrar}
+                        <span class="index-item-count">${count}/5</span>
+                    </div>
+                    <div class="index-item-preview">${preview.substring(0, 50)}${preview.length > 50 ? '...' : ''}</div>
+                `;
+                container.appendChild(item);
+            }
+        }
+    </script>
 </body>
 </html>
